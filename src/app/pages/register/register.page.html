@@ -22,7 +22,8 @@
           <ion-label position="floating">Nome ou apelido</ion-label>
           <ion-input formControlName="name" required="true" type="text" inputmode="text" autofocus="true" maxlength="200" required></ion-input>
         </ion-item>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">
+        <input-error [control]="ionicForm.get('name')" fieldName="Nome ou apelido"></input-error>
+        <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">
           Informe um nome ou apelido.
         </span>
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.minlength">
@@ -30,27 +31,17 @@
         </span>
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.maxlength">
           O nome ou apelido deve ter no máximo 200 letras.
-        </span>
+        </span> -->
         <ion-item lines="full">
           <ion-label position="floating">Idade</ion-label>
           <ion-input formControlName="age" type="number" inputmode="numeric" maxlength="3" required></ion-input>
         </ion-item>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.age.errors?.required">
-          Informe a idade.
-        </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.age.errors?.pattern">
-          Formato incorreto para idade.
-        </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && !ionicForm.get('age').errors && ionicForm.hasError('ageInvalid')">
-          Idade inválida, informe uma idade maior que 0 e menor que 130.
-        </span>
+        <input-error [control]="ionicForm.get('age')" fieldName="Idade"></input-error>
         <ion-item lines="full">
           <ion-label position="floating">Número de telefone</ion-label>
           <ion-input formControlName="phone" required="true" type="tel" inputmode="tel" [brmasker]="{phone: true}" required></ion-input>
         </ion-item>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.phone.errors?.required">
-          Informe o telefone.
-        </span>
+        <input-error [control]="ionicForm.get('phone')" fieldName="Número de telefone"></input-error>
 
         <ion-item>
           <ion-label position="floating">Parentesco</ion-label>
@@ -65,9 +56,7 @@
             <ion-select-option value="Amigo">Amigo</ion-select-option>
           </ion-select>
         </ion-item>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.relationship.errors?.required">
-          Selecione o parentesco.
-        </span>
+        <input-error [control]="ionicForm.get('relationship')" fieldName="Parentesco"></input-error>
     
         <ion-row>
           <ion-col>

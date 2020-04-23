@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -17,13 +16,15 @@ import { FirebaseDatabaseServices } from './services/firebase/firebase-database.
 import { AuthFirebaseService } from './services/firebase/firebase-auth.service';
 import { FirebaseGoogleAuthService } from './services/firebase/firebase-google-auth.service';
 import { CoronaToast } from './shared/corona-toast';
+import { SharedModule } from './shared/shared.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot({
+  imports: [SharedModule, BrowserModule, IonicModule.forRoot({
     backButtonText: 'Voltar'
   }), AppRoutingModule,
   IonicStorageModule.forRoot({
